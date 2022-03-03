@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DbSinavOgrenciModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBLExamNotes">
+          <Key>
+            <PropertyRef Name="LessonId" />
+          </Key>
+          <Property Name="LessonId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Student" Type="int" />
+          <Property Name="Lesson" Type="int" />
+          <Property Name="exam1" Type="smallint" />
+          <Property Name="exam2" Type="smallint" />
+          <Property Name="exam3" Type="smallint" />
+          <Property Name="exam_averages" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="situation" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBLLessons">
+          <Key>
+            <PropertyRef Name="LessonId" />
+          </Key>
+          <Property Name="LessonId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LessonName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBLStudent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="30" />
+          <Property Name="LastName" Type="varchar" MaxLength="30" />
+          <Property Name="Image" Type="nvarchar" MaxLength="120" />
+        </EntityType>
+        <Association Name="FK_TBLExamNotes_TBLLessons">
+          <End Role="TBLLessons" Type="Self.TBLLessons" Multiplicity="0..1" />
+          <End Role="TBLExamNotes" Type="Self.TBLExamNotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLLessons">
+              <PropertyRef Name="LessonId" />
+            </Principal>
+            <Dependent Role="TBLExamNotes">
+              <PropertyRef Name="Lesson" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLExamNotes_TBLStudent">
+          <End Role="TBLStudent" Type="Self.TBLStudent" Multiplicity="0..1" />
+          <End Role="TBLExamNotes" Type="Self.TBLExamNotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLStudent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBLExamNotes">
+              <PropertyRef Name="Student" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbSinavOgrenciModelStoreContainer">
+          <EntitySet Name="TBLExamNotes" EntityType="Self.TBLExamNotes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLLessons" EntityType="Self.TBLLessons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLStudent" EntityType="Self.TBLStudent" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TBLExamNotes_TBLLessons" Association="Self.FK_TBLExamNotes_TBLLessons">
+            <End Role="TBLLessons" EntitySet="TBLLessons" />
+            <End Role="TBLExamNotes" EntitySet="TBLExamNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLExamNotes_TBLStudent" Association="Self.FK_TBLExamNotes_TBLStudent">
+            <End Role="TBLStudent" EntitySet="TBLStudent" />
+            <End Role="TBLExamNotes" EntitySet="TBLExamNotes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DbSinavOgrenciModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TBLExamNotes">
+          <Key>
+            <PropertyRef Name="LessonId" />
+          </Key>
+          <Property Name="LessonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Student" Type="Int32" />
+          <Property Name="Lesson" Type="Int32" />
+          <Property Name="exam1" Type="Int16" />
+          <Property Name="exam2" Type="Int16" />
+          <Property Name="exam3" Type="Int16" />
+          <Property Name="exam_averages" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="situation" Type="Boolean" />
+          <NavigationProperty Name="TBLLessons" Relationship="Self.FK_TBLExamNotes_TBLLessons" FromRole="TBLExamNotes" ToRole="TBLLessons" />
+          <NavigationProperty Name="TBLStudent" Relationship="Self.FK_TBLExamNotes_TBLStudent" FromRole="TBLExamNotes" ToRole="TBLStudent" />
+        </EntityType>
+        <EntityType Name="TBLLessons">
+          <Key>
+            <PropertyRef Name="LessonId" />
+          </Key>
+          <Property Name="LessonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LessonName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBLExamNotes" Relationship="Self.FK_TBLExamNotes_TBLLessons" FromRole="TBLLessons" ToRole="TBLExamNotes" />
+        </EntityType>
+        <EntityType Name="TBLStudent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Image" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TBLExamNotes" Relationship="Self.FK_TBLExamNotes_TBLStudent" FromRole="TBLStudent" ToRole="TBLExamNotes" />
+        </EntityType>
+        <Association Name="FK_TBLExamNotes_TBLLessons">
+          <End Role="TBLLessons" Type="Self.TBLLessons" Multiplicity="0..1" />
+          <End Role="TBLExamNotes" Type="Self.TBLExamNotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLLessons">
+              <PropertyRef Name="LessonId" />
+            </Principal>
+            <Dependent Role="TBLExamNotes">
+              <PropertyRef Name="Lesson" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLExamNotes_TBLStudent">
+          <End Role="TBLStudent" Type="Self.TBLStudent" Multiplicity="0..1" />
+          <End Role="TBLExamNotes" Type="Self.TBLExamNotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLStudent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBLExamNotes">
+              <PropertyRef Name="Student" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbSinavOgrenciEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TBLExamNotes" EntityType="Self.TBLExamNotes" />
+          <EntitySet Name="TBLLessons" EntityType="Self.TBLLessons" />
+          <EntitySet Name="TBLStudent" EntityType="Self.TBLStudent" />
+          <AssociationSet Name="FK_TBLExamNotes_TBLLessons" Association="Self.FK_TBLExamNotes_TBLLessons">
+            <End Role="TBLLessons" EntitySet="TBLLessons" />
+            <End Role="TBLExamNotes" EntitySet="TBLExamNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLExamNotes_TBLStudent" Association="Self.FK_TBLExamNotes_TBLStudent">
+            <End Role="TBLStudent" EntitySet="TBLStudent" />
+            <End Role="TBLExamNotes" EntitySet="TBLExamNotes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DbSinavOgrenciModelStoreContainer" CdmEntityContainer="DbSinavOgrenciEntities">
+          <EntitySetMapping Name="TBLExamNotes">
+            <EntityTypeMapping TypeName="DbSinavOgrenciModel.TBLExamNotes">
+              <MappingFragment StoreEntitySet="TBLExamNotes">
+                <ScalarProperty Name="LessonId" ColumnName="LessonId" />
+                <ScalarProperty Name="Student" ColumnName="Student" />
+                <ScalarProperty Name="Lesson" ColumnName="Lesson" />
+                <ScalarProperty Name="exam1" ColumnName="exam1" />
+                <ScalarProperty Name="exam2" ColumnName="exam2" />
+                <ScalarProperty Name="exam3" ColumnName="exam3" />
+                <ScalarProperty Name="exam_averages" ColumnName="exam_averages" />
+                <ScalarProperty Name="situation" ColumnName="situation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLLessons">
+            <EntityTypeMapping TypeName="DbSinavOgrenciModel.TBLLessons">
+              <MappingFragment StoreEntitySet="TBLLessons">
+                <ScalarProperty Name="LessonId" ColumnName="LessonId" />
+                <ScalarProperty Name="LessonName" ColumnName="LessonName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLStudent">
+            <EntityTypeMapping TypeName="DbSinavOgrenciModel.TBLStudent">
+              <MappingFragment StoreEntitySet="TBLStudent">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
