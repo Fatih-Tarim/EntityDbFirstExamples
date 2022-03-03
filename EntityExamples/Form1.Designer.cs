@@ -72,6 +72,7 @@ namespace EntityExamples
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(13, 13);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -90,6 +91,7 @@ namespace EntityExamples
             this.BtnOgrenciListele.TabIndex = 1;
             this.BtnOgrenciListele.Text = "Öğrenci Listele";
             this.BtnOgrenciListele.UseVisualStyleBackColor = true;
+            this.BtnOgrenciListele.Click += new System.EventHandler(this.BtnOgrenciListele_Click);
             // 
             // BtnKaydet
             // 
@@ -392,6 +394,7 @@ namespace EntityExamples
             this.BtnDersListesi.TabIndex = 23;
             this.BtnDersListesi.Text = "Ders Listesi";
             this.BtnDersListesi.UseVisualStyleBackColor = true;
+            this.BtnDersListesi.Click += new System.EventHandler(this.BtnDersListesi_Click);
             // 
             // BtnNotListesi
             // 
