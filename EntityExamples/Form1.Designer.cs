@@ -45,6 +45,7 @@ namespace EntityExamples
             this.TxtOgrenciId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.BtnDersKaydet = new System.Windows.Forms.Button();
             this.TxtDersAd = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.TxtDersId = new System.Windows.Forms.TextBox();
@@ -64,19 +65,31 @@ namespace EntityExamples
             this.label10 = new System.Windows.Forms.Label();
             this.BtnDersListesi = new System.Windows.Forms.Button();
             this.BtnNotListesi = new System.Windows.Forms.Button();
-            this.BtnDersKaydet = new System.Windows.Forms.Button();
             this.BtnProsedur = new System.Windows.Forms.Button();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.BtnLinqEntity = new System.Windows.Forms.Button();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.TextIdBul = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.Deneme = new System.Windows.Forms.GroupBox();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.radioButton8 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.Deneme.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(-4, -2);
+            this.dataGridView1.Location = new System.Drawing.Point(13, 4);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -137,6 +150,7 @@ namespace EntityExamples
             this.BtnBul.TabIndex = 5;
             this.BtnBul.Text = "Bul";
             this.BtnBul.UseVisualStyleBackColor = true;
+            this.BtnBul.Click += new System.EventHandler(this.BtnBul_Click);
             // 
             // groupBox1
             // 
@@ -199,6 +213,7 @@ namespace EntityExamples
             this.TxtOgrenciAd.Name = "TxtOgrenciAd";
             this.TxtOgrenciAd.Size = new System.Drawing.Size(127, 27);
             this.TxtOgrenciAd.TabIndex = 17;
+            this.TxtOgrenciAd.TextChanged += new System.EventHandler(this.TxtOgrenciAd_TextChanged);
             // 
             // label2
             // 
@@ -241,6 +256,17 @@ namespace EntityExamples
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ders";
+            // 
+            // BtnDersKaydet
+            // 
+            this.BtnDersKaydet.Location = new System.Drawing.Point(112, 109);
+            this.BtnDersKaydet.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnDersKaydet.Name = "BtnDersKaydet";
+            this.BtnDersKaydet.Size = new System.Drawing.Size(136, 35);
+            this.BtnDersKaydet.TabIndex = 25;
+            this.BtnDersKaydet.Text = "Kaydet";
+            this.BtnDersKaydet.UseVisualStyleBackColor = true;
+            this.BtnDersKaydet.Click += new System.EventHandler(this.button1_Click);
             // 
             // TxtDersAd
             // 
@@ -294,9 +320,9 @@ namespace EntityExamples
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.TxtSinav1);
             this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Location = new System.Drawing.Point(566, 314);
+            this.groupBox3.Location = new System.Drawing.Point(584, 309);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(295, 325);
+            this.groupBox3.Size = new System.Drawing.Size(321, 330);
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Sınavlar";
@@ -433,17 +459,6 @@ namespace EntityExamples
             this.BtnNotListesi.UseVisualStyleBackColor = true;
             this.BtnNotListesi.Click += new System.EventHandler(this.BtnNotListesi_Click);
             // 
-            // BtnDersKaydet
-            // 
-            this.BtnDersKaydet.Location = new System.Drawing.Point(112, 109);
-            this.BtnDersKaydet.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnDersKaydet.Name = "BtnDersKaydet";
-            this.BtnDersKaydet.Size = new System.Drawing.Size(136, 35);
-            this.BtnDersKaydet.TabIndex = 25;
-            this.BtnDersKaydet.Text = "Kaydet";
-            this.BtnDersKaydet.UseVisualStyleBackColor = true;
-            this.BtnDersKaydet.Click += new System.EventHandler(this.button1_Click);
-            // 
             // BtnProsedur
             // 
             this.BtnProsedur.Location = new System.Drawing.Point(15, 590);
@@ -455,11 +470,148 @@ namespace EntityExamples
             this.BtnProsedur.UseVisualStyleBackColor = true;
             this.BtnProsedur.Click += new System.EventHandler(this.BtnProsedur_Click);
             // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(912, 12);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(196, 24);
+            this.radioButton1.TabIndex = 26;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Ada Göre Sırala A-->Z";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // BtnLinqEntity
+            // 
+            this.BtnLinqEntity.Location = new System.Drawing.Point(912, 544);
+            this.BtnLinqEntity.Name = "BtnLinqEntity";
+            this.BtnLinqEntity.Size = new System.Drawing.Size(196, 77);
+            this.BtnLinqEntity.TabIndex = 27;
+            this.BtnLinqEntity.Text = "Linq Entity";
+            this.BtnLinqEntity.UseVisualStyleBackColor = true;
+            this.BtnLinqEntity.Click += new System.EventHandler(this.BtnLinqEntity_Click);
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(912, 45);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(196, 24);
+            this.radioButton2.TabIndex = 28;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Ada Göre Sırala Z-->A";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(912, 75);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(115, 24);
+            this.radioButton3.TabIndex = 29;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Son 5 Kayıt";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(6, 65);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(136, 24);
+            this.radioButton4.TabIndex = 30;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Id\'ye Göre Bul";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // TextIdBul
+            // 
+            this.TextIdBul.Location = new System.Drawing.Point(42, 28);
+            this.TextIdBul.Margin = new System.Windows.Forms.Padding(4);
+            this.TextIdBul.Name = "TextIdBul";
+            this.TextIdBul.Size = new System.Drawing.Size(127, 27);
+            this.TextIdBul.TabIndex = 27;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(7, 28);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(27, 20);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "Id:";
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(912, 105);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(193, 24);
+            this.radioButton5.TabIndex = 31;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.Text = "Adı \'A\' ile Başlayanlar";
+            this.radioButton5.UseVisualStyleBackColor = true;
+            // 
+            // Deneme
+            // 
+            this.Deneme.Controls.Add(this.radioButton4);
+            this.Deneme.Controls.Add(this.TextIdBul);
+            this.Deneme.Controls.Add(this.label12);
+            this.Deneme.Location = new System.Drawing.Point(912, 427);
+            this.Deneme.Name = "Deneme";
+            this.Deneme.Size = new System.Drawing.Size(200, 100);
+            this.Deneme.TabIndex = 32;
+            this.Deneme.TabStop = false;
+            this.Deneme.Text = "Deneme";
+            // 
+            // radioButton6
+            // 
+            this.radioButton6.AutoSize = true;
+            this.radioButton6.Location = new System.Drawing.Point(912, 135);
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.Size = new System.Drawing.Size(163, 24);
+            this.radioButton6.TabIndex = 33;
+            this.radioButton6.TabStop = true;
+            this.radioButton6.Text = "Adı \'A\' ile Bitenler";
+            this.radioButton6.UseVisualStyleBackColor = true;
+            // 
+            // radioButton7
+            // 
+            this.radioButton7.AutoSize = true;
+            this.radioButton7.Location = new System.Drawing.Point(912, 165);
+            this.radioButton7.Name = "radioButton7";
+            this.radioButton7.Size = new System.Drawing.Size(139, 24);
+            this.radioButton7.TabIndex = 34;
+            this.radioButton7.TabStop = true;
+            this.radioButton7.Text = "Değer Var mı?";
+            this.radioButton7.UseVisualStyleBackColor = true;
+            // 
+            // radioButton8
+            // 
+            this.radioButton8.AutoSize = true;
+            this.radioButton8.Location = new System.Drawing.Point(912, 195);
+            this.radioButton8.Name = "radioButton8";
+            this.radioButton8.Size = new System.Drawing.Size(195, 24);
+            this.radioButton8.TabIndex = 35;
+            this.radioButton8.TabStop = true;
+            this.radioButton8.Text = "Toplam Öğrenci Saysı";
+            this.radioButton8.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(886, 656);
+            this.ClientSize = new System.Drawing.Size(1121, 656);
+            this.Controls.Add(this.radioButton8);
+            this.Controls.Add(this.radioButton7);
+            this.Controls.Add(this.radioButton6);
+            this.Controls.Add(this.Deneme);
+            this.Controls.Add(this.radioButton5);
+            this.Controls.Add(this.radioButton3);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.BtnLinqEntity);
+            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.BtnProsedur);
             this.Controls.Add(this.BtnNotListesi);
             this.Controls.Add(this.BtnDersListesi);
@@ -483,7 +635,10 @@ namespace EntityExamples
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.Deneme.ResumeLayout(false);
+            this.Deneme.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -526,6 +681,18 @@ namespace EntityExamples
         private System.Windows.Forms.Button BtnHesapla;
         private System.Windows.Forms.Button BtnDersKaydet;
         private System.Windows.Forms.Button BtnProsedur;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Button BtnLinqEntity;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.TextBox TextIdBul;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.GroupBox Deneme;
+        private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.RadioButton radioButton7;
+        private System.Windows.Forms.RadioButton radioButton8;
     }
 }
 

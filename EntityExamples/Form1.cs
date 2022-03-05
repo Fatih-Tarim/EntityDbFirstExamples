@@ -115,5 +115,69 @@ namespace EntityExamples
         {
             dataGridView1.DataSource = db.NotListesi();
         }
+
+        private void BtnBul_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = db.TBLStudent.Where(x => x.FirstName == TxtOgrenciAd.Text || x.LastName == TxtOgrenciSoyad.Text).ToList();
+
+        }
+
+        private void TxtOgrenciAd_TextChanged(object sender, EventArgs e)
+        {
+            string search = TxtOgrenciAd.Text;
+            var values = from item in db.TBLStudent
+                         where item.FirstName.Contains(search)
+                         select item;
+            dataGridView1.DataSource = values.ToList();
+
+        }
+
+        private void BtnLinqEntity_Click(object sender, EventArgs e)
+        {
+            //Asc - Ascending
+            if (radioButton1.Checked == true)
+            {
+                List<TBLStudent> Studenta_z = db.TBLStudent.OrderBy(p => p.FirstName).ToList();
+                dataGridView1.DataSource = Studenta_z;
+
+            }
+            //Desc - Descending
+            if (radioButton2.Checked == true)
+            {
+                List<TBLStudent> Studentz_a = db.TBLStudent.OrderByDescending(x => x.FirstName).ToList();
+                dataGridView1.DataSource = Studentz_a;
+            }
+            if (radioButton3.Checked==true)
+            {
+                List<TBLStudent> Last5Record = db.TBLStudent.OrderByDescending(p=>p.FirstName).Take(5).ToList();
+                dataGridView1.DataSource = Last5Record;
+            }
+            if (radioButton4.Checked == true)
+            {
+                var TextId = Convert.ToInt32(TextIdBul.Text);
+                List<TBLStudent> IdList = db.TBLStudent.Where(x => x.Id == TextId).ToList();
+                dataGridView1.DataSource = IdList;
+            }
+            if (radioButton5.Checked == true)
+            {
+                List<TBLStudent> orderA = db.TBLStudent.Where(x => x.FirstName.StartsWith("a")).ToList();
+                dataGridView1.DataSource = orderA;
+            }
+            if (radioButton6.Checked == true)
+            {
+                List<TBLStudent> orderDescendingA = db.TBLStudent.Where(x => x.FirstName.EndsWith("a")).ToList();
+                dataGridView1.DataSource = orderDescendingA;
+            }
+            if (radioButton7.Checked==true)
+            {
+                bool value = db.TBLStudent.Any();
+                MessageBox.Show(value.ToString(),"Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+            if (radioButton8.Checked == true)
+            {
+                int sum = db.TBLStudent.Count();
+                MessageBox.Show(sum.ToString(), "Toplam Öğrenci Sayısı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }
