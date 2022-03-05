@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DbSinavOgrenciModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DbSinavOgrenciModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="TBLExamNotes">
           <Key>
             <PropertyRef Name="LessonId" />
@@ -17,6 +17,13 @@
           <Property Name="exam3" Type="smallint" />
           <Property Name="exam_averages" Type="decimal" Precision="5" Scale="2" />
           <Property Name="situation" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBLKULUPLER">
+          <Key>
+            <PropertyRef Name="KULUPID" />
+          </Key>
+          <Property Name="KULUPID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KULUPAD" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="TBLLessons">
           <Key>
@@ -58,8 +65,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="NotListesi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DbSinavOgrenciModelStoreContainer">
           <EntitySet Name="TBLExamNotes" EntityType="Self.TBLExamNotes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLKULUPLER" EntityType="Self.TBLKULUPLER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLLessons" EntityType="Self.TBLLessons" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBLStudent" EntityType="Self.TBLStudent" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_TBLExamNotes_TBLLessons" Association="Self.FK_TBLExamNotes_TBLLessons">
@@ -71,8 +80,7 @@
             <End Role="TBLExamNotes" EntitySet="TBLExamNotes" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DbSinavOgrenciModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -145,7 +153,26 @@
             <End Role="TBLStudent" EntitySet="TBLStudent" />
             <End Role="TBLExamNotes" EntitySet="TBLExamNotes" />
           </AssociationSet>
+          <EntitySet Name="TBLKULUPLER" EntityType="DbSinavOgrenciModel.TBLKULUPLER" />
+          <FunctionImport Name="NotListesi" ReturnType="Collection(DbSinavOgrenciModel.NotListesi_Result)" />
         </EntityContainer>
+        <EntityType Name="TBLKULUPLER">
+          <Key>
+            <PropertyRef Name="KULUPID" />
+          </Key>
+          <Property Name="KULUPID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KULUPAD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="NotListesi_Result">
+          <Property Type="Int32" Name="Lesson" Nullable="true" />
+          <Property Type="String" Name="Ad_Soyad" Nullable="true" MaxLength="61" />
+          <Property Type="String" Name="LessonName" Nullable="true" MaxLength="50" />
+          <Property Type="Int16" Name="exam1" Nullable="true" />
+          <Property Type="Int16" Name="exam2" Nullable="true" />
+          <Property Type="Int16" Name="exam3" Nullable="true" />
+          <Property Type="Decimal" Name="exam_averages" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="Boolean" Name="situation" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -184,6 +211,28 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TBLKULUPLER">
+            <EntityTypeMapping TypeName="DbSinavOgrenciModel.TBLKULUPLER">
+              <MappingFragment StoreEntitySet="TBLKULUPLER">
+                <ScalarProperty Name="KULUPAD" ColumnName="KULUPAD" />
+                <ScalarProperty Name="KULUPID" ColumnName="KULUPID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="NotListesi" FunctionName="DbSinavOgrenciModel.Store.NotListesi">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DbSinavOgrenciModel.NotListesi_Result">
+                <ScalarProperty Name="Lesson" ColumnName="Lesson" />
+                <ScalarProperty Name="Ad_Soyad" ColumnName="Ad Soyad" />
+                <ScalarProperty Name="LessonName" ColumnName="LessonName" />
+                <ScalarProperty Name="exam1" ColumnName="exam1" />
+                <ScalarProperty Name="exam2" ColumnName="exam2" />
+                <ScalarProperty Name="exam3" ColumnName="exam3" />
+                <ScalarProperty Name="exam_averages" ColumnName="exam_averages" />
+                <ScalarProperty Name="situation" ColumnName="situation" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

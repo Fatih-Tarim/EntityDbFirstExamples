@@ -50,6 +50,10 @@ namespace EntityExamples
             this.TxtDersId = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.BtnNotGuncelle = new System.Windows.Forms.Button();
+            this.BtnHesapla = new System.Windows.Forms.Button();
+            this.TxtDurum = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.TxtOrtalama = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.TxtSinav3 = new System.Windows.Forms.TextBox();
@@ -58,12 +62,10 @@ namespace EntityExamples
             this.label9 = new System.Windows.Forms.Label();
             this.TxtSinav1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.TxtDurum = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.BtnDersListesi = new System.Windows.Forms.Button();
             this.BtnNotListesi = new System.Windows.Forms.Button();
-            this.BtnHesapla = new System.Windows.Forms.Button();
-            this.BtnNotGuncelle = new System.Windows.Forms.Button();
+            this.BtnDersKaydet = new System.Windows.Forms.Button();
+            this.BtnProsedur = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -74,18 +76,18 @@ namespace EntityExamples
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 13);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(-4, -2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(865, 287);
+            this.dataGridView1.Size = new System.Drawing.Size(892, 286);
             this.dataGridView1.TabIndex = 0;
             // 
             // BtnOgrenciListele
             // 
-            this.BtnOgrenciListele.Location = new System.Drawing.Point(11, 330);
-            this.BtnOgrenciListele.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnOgrenciListele.Location = new System.Drawing.Point(13, 298);
+            this.BtnOgrenciListele.Margin = new System.Windows.Forms.Padding(4);
             this.BtnOgrenciListele.Name = "BtnOgrenciListele";
             this.BtnOgrenciListele.Size = new System.Drawing.Size(136, 41);
             this.BtnOgrenciListele.TabIndex = 1;
@@ -95,38 +97,41 @@ namespace EntityExamples
             // 
             // BtnKaydet
             // 
-            this.BtnKaydet.Location = new System.Drawing.Point(11, 379);
-            this.BtnKaydet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnKaydet.Location = new System.Drawing.Point(13, 347);
+            this.BtnKaydet.Margin = new System.Windows.Forms.Padding(4);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(136, 37);
             this.BtnKaydet.TabIndex = 2;
             this.BtnKaydet.Text = "Kaydet";
             this.BtnKaydet.UseVisualStyleBackColor = true;
+            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
             // BtnSil
             // 
-            this.BtnSil.Location = new System.Drawing.Point(11, 424);
-            this.BtnSil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnSil.Location = new System.Drawing.Point(13, 392);
+            this.BtnSil.Margin = new System.Windows.Forms.Padding(4);
             this.BtnSil.Name = "BtnSil";
             this.BtnSil.Size = new System.Drawing.Size(136, 27);
             this.BtnSil.TabIndex = 3;
             this.BtnSil.Text = "Sil";
             this.BtnSil.UseVisualStyleBackColor = true;
+            this.BtnSil.Click += new System.EventHandler(this.BtnSil_Click);
             // 
             // BtnGüncelle
             // 
-            this.BtnGüncelle.Location = new System.Drawing.Point(11, 459);
-            this.BtnGüncelle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnGüncelle.Location = new System.Drawing.Point(13, 427);
+            this.BtnGüncelle.Margin = new System.Windows.Forms.Padding(4);
             this.BtnGüncelle.Name = "BtnGüncelle";
             this.BtnGüncelle.Size = new System.Drawing.Size(136, 33);
             this.BtnGüncelle.TabIndex = 4;
             this.BtnGüncelle.Text = "Güncelle";
             this.BtnGüncelle.UseVisualStyleBackColor = true;
+            this.BtnGüncelle.Click += new System.EventHandler(this.BtnGüncelle_Click);
             // 
             // BtnBul
             // 
-            this.BtnBul.Location = new System.Drawing.Point(13, 499);
-            this.BtnBul.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnBul.Location = new System.Drawing.Point(15, 467);
+            this.BtnBul.Margin = new System.Windows.Forms.Padding(4);
             this.BtnBul.Name = "BtnBul";
             this.BtnBul.Size = new System.Drawing.Size(134, 28);
             this.BtnBul.TabIndex = 5;
@@ -143,7 +148,7 @@ namespace EntityExamples
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.TxtOgrenciId);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(239, 314);
+            this.groupBox1.Location = new System.Drawing.Point(239, 291);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(295, 183);
             this.groupBox1.TabIndex = 6;
@@ -225,20 +230,21 @@ namespace EntityExamples
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.BtnDersKaydet);
             this.groupBox2.Controls.Add(this.TxtDersAd);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.TxtDersId);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Location = new System.Drawing.Point(239, 514);
+            this.groupBox2.Location = new System.Drawing.Point(239, 480);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(295, 125);
+            this.groupBox2.Size = new System.Drawing.Size(295, 159);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ders";
             // 
             // TxtDersAd
             // 
-            this.TxtDersAd.Location = new System.Drawing.Point(112, 92);
+            this.TxtDersAd.Location = new System.Drawing.Point(112, 64);
             this.TxtDersAd.Margin = new System.Windows.Forms.Padding(4);
             this.TxtDersAd.Name = "TxtDersAd";
             this.TxtDersAd.Size = new System.Drawing.Size(127, 27);
@@ -247,7 +253,7 @@ namespace EntityExamples
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(26, 95);
+            this.label7.Location = new System.Drawing.Point(26, 67);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(80, 20);
@@ -257,7 +263,7 @@ namespace EntityExamples
             // 
             // TxtDersId
             // 
-            this.TxtDersId.Location = new System.Drawing.Point(112, 57);
+            this.TxtDersId.Location = new System.Drawing.Point(112, 29);
             this.TxtDersId.Margin = new System.Windows.Forms.Padding(4);
             this.TxtDersId.Name = "TxtDersId";
             this.TxtDersId.Size = new System.Drawing.Size(127, 27);
@@ -266,7 +272,7 @@ namespace EntityExamples
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(35, 60);
+            this.label8.Location = new System.Drawing.Point(35, 32);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(69, 20);
@@ -294,6 +300,44 @@ namespace EntityExamples
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Sınavlar";
+            // 
+            // BtnNotGuncelle
+            // 
+            this.BtnNotGuncelle.Location = new System.Drawing.Point(51, 265);
+            this.BtnNotGuncelle.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnNotGuncelle.Name = "BtnNotGuncelle";
+            this.BtnNotGuncelle.Size = new System.Drawing.Size(201, 45);
+            this.BtnNotGuncelle.TabIndex = 26;
+            this.BtnNotGuncelle.Text = "Sınav Notu Güncelle";
+            this.BtnNotGuncelle.UseVisualStyleBackColor = true;
+            // 
+            // BtnHesapla
+            // 
+            this.BtnHesapla.Location = new System.Drawing.Point(136, 229);
+            this.BtnHesapla.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnHesapla.Name = "BtnHesapla";
+            this.BtnHesapla.Size = new System.Drawing.Size(116, 28);
+            this.BtnHesapla.TabIndex = 25;
+            this.BtnHesapla.Text = "Hesapla";
+            this.BtnHesapla.UseVisualStyleBackColor = true;
+            // 
+            // TxtDurum
+            // 
+            this.TxtDurum.Location = new System.Drawing.Point(125, 184);
+            this.TxtDurum.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtDurum.Name = "TxtDurum";
+            this.TxtDurum.Size = new System.Drawing.Size(127, 27);
+            this.TxtDurum.TabIndex = 23;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(46, 187);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(65, 20);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "Durum:";
             // 
             // TxtOrtalama
             // 
@@ -367,27 +411,9 @@ namespace EntityExamples
             this.label10.TabIndex = 14;
             this.label10.Text = "Sınav 1:";
             // 
-            // TxtDurum
-            // 
-            this.TxtDurum.Location = new System.Drawing.Point(125, 184);
-            this.TxtDurum.Margin = new System.Windows.Forms.Padding(4);
-            this.TxtDurum.Name = "TxtDurum";
-            this.TxtDurum.Size = new System.Drawing.Size(127, 27);
-            this.TxtDurum.TabIndex = 23;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(46, 187);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(65, 20);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "Durum:";
-            // 
             // BtnDersListesi
             // 
-            this.BtnDersListesi.Location = new System.Drawing.Point(11, 535);
+            this.BtnDersListesi.Location = new System.Drawing.Point(13, 503);
             this.BtnDersListesi.Margin = new System.Windows.Forms.Padding(4);
             this.BtnDersListesi.Name = "BtnDersListesi";
             this.BtnDersListesi.Size = new System.Drawing.Size(136, 36);
@@ -398,39 +424,43 @@ namespace EntityExamples
             // 
             // BtnNotListesi
             // 
-            this.BtnNotListesi.Location = new System.Drawing.Point(11, 579);
+            this.BtnNotListesi.Location = new System.Drawing.Point(13, 547);
             this.BtnNotListesi.Margin = new System.Windows.Forms.Padding(4);
             this.BtnNotListesi.Name = "BtnNotListesi";
             this.BtnNotListesi.Size = new System.Drawing.Size(136, 35);
             this.BtnNotListesi.TabIndex = 24;
             this.BtnNotListesi.Text = "Not Listesi";
             this.BtnNotListesi.UseVisualStyleBackColor = true;
+            this.BtnNotListesi.Click += new System.EventHandler(this.BtnNotListesi_Click);
             // 
-            // BtnHesapla
+            // BtnDersKaydet
             // 
-            this.BtnHesapla.Location = new System.Drawing.Point(136, 229);
-            this.BtnHesapla.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnHesapla.Name = "BtnHesapla";
-            this.BtnHesapla.Size = new System.Drawing.Size(116, 28);
-            this.BtnHesapla.TabIndex = 25;
-            this.BtnHesapla.Text = "Hesapla";
-            this.BtnHesapla.UseVisualStyleBackColor = true;
+            this.BtnDersKaydet.Location = new System.Drawing.Point(112, 109);
+            this.BtnDersKaydet.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnDersKaydet.Name = "BtnDersKaydet";
+            this.BtnDersKaydet.Size = new System.Drawing.Size(136, 35);
+            this.BtnDersKaydet.TabIndex = 25;
+            this.BtnDersKaydet.Text = "Kaydet";
+            this.BtnDersKaydet.UseVisualStyleBackColor = true;
+            this.BtnDersKaydet.Click += new System.EventHandler(this.button1_Click);
             // 
-            // BtnNotGuncelle
+            // BtnProsedur
             // 
-            this.BtnNotGuncelle.Location = new System.Drawing.Point(51, 265);
-            this.BtnNotGuncelle.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnNotGuncelle.Name = "BtnNotGuncelle";
-            this.BtnNotGuncelle.Size = new System.Drawing.Size(201, 45);
-            this.BtnNotGuncelle.TabIndex = 26;
-            this.BtnNotGuncelle.Text = "Sınav Notu Güncelle";
-            this.BtnNotGuncelle.UseVisualStyleBackColor = true;
+            this.BtnProsedur.Location = new System.Drawing.Point(15, 590);
+            this.BtnProsedur.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnProsedur.Name = "BtnProsedur";
+            this.BtnProsedur.Size = new System.Drawing.Size(136, 35);
+            this.BtnProsedur.TabIndex = 25;
+            this.BtnProsedur.Text = "Prosedür";
+            this.BtnProsedur.UseVisualStyleBackColor = true;
+            this.BtnProsedur.Click += new System.EventHandler(this.BtnProsedur_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(886, 656);
+            this.Controls.Add(this.BtnProsedur);
             this.Controls.Add(this.BtnNotListesi);
             this.Controls.Add(this.BtnDersListesi);
             this.Controls.Add(this.groupBox3);
@@ -443,7 +473,7 @@ namespace EntityExamples
             this.Controls.Add(this.BtnOgrenciListele);
             this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -494,6 +524,8 @@ namespace EntityExamples
         private System.Windows.Forms.Button BtnNotListesi;
         private System.Windows.Forms.Button BtnNotGuncelle;
         private System.Windows.Forms.Button BtnHesapla;
+        private System.Windows.Forms.Button BtnDersKaydet;
+        private System.Windows.Forms.Button BtnProsedur;
     }
 }
 

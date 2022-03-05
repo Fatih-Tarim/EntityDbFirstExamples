@@ -12,6 +12,8 @@ namespace EntityExamples
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class DbSinavOgrenciEntities : DbContext
     {
@@ -28,5 +30,11 @@ namespace EntityExamples
         public virtual DbSet<TBLExamNotes> TBLExamNotes { get; set; }
         public virtual DbSet<TBLLessons> TBLLessons { get; set; }
         public virtual DbSet<TBLStudent> TBLStudent { get; set; }
+        public virtual DbSet<TBLKULUPLER> TBLKULUPLER { get; set; }
+    
+        public virtual ObjectResult<NotListesi_Result> NotListesi()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<NotListesi_Result>("NotListesi");
+        }
     }
 }
