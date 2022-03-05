@@ -178,6 +178,32 @@ namespace EntityExamples
                 int sum = db.TBLStudent.Count();
                 MessageBox.Show(sum.ToString(), "Toplam Öğrenci Sayısı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            if (radioButton9.Checked == true)
+            {
+                var sum = db.TBLExamNotes.Sum(p => p.exam1);
+                MessageBox.Show("Birinci Sınavlar Toplamı: "+sum.ToString());
+            }
+            if (radioButton10.Checked == true)
+            {
+                var average = db.TBLExamNotes.Average(x => x.exam1);
+                MessageBox.Show("Birinci Sınavlar Toplamı: " + average.ToString());
+            }
+            if (radioButton11.Checked == true)
+            {
+                var average = db.TBLExamNotes.Average(x => x.exam1);
+                List<TBLExamNotes> exam1 = db.TBLExamNotes.Where(p=>p.exam1>=average).ToList();
+                dataGridView1.DataSource = exam1;
+            }
+            if (radioButton12.Checked == true)
+            {
+                var high = db.TBLExamNotes.Max(p => p.exam1);
+                MessageBox.Show("Birinci Sınavın En yüksek puanı: " + high);
+            }
+            if (radioButton13.Checked == true)
+            {
+                //En Yüksek Sınav Notu kime ait??
+            }
+
         }
     }
 }
