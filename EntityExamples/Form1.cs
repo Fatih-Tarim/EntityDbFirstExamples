@@ -59,15 +59,17 @@ namespace EntityExamples
         private void BtnNotListesi_Click(object sender, EventArgs e)
         {
             var query = from item in db.TBLExamNotes
-                        select new { 
-                            item.LessonId, 
-                            item.Student, 
-                            item.Lesson, 
-                            item.exam1, 
-                            item.exam2, 
-                            item.exam3, 
-                            item.exam_averages, 
-                            item.situation 
+                        select new
+                        {
+                            item.LessonId,
+                            item.TBLStudent.FirstName,
+                            item.TBLStudent.LastName,
+                            item.TBLLessons.LessonName,
+                            item.exam1,
+                            item.exam2,
+                            item.exam3,
+                            item.exam_averages,
+                            item.situation
                         };
             dataGridView1.DataSource = query.ToList();
         }
@@ -147,9 +149,9 @@ namespace EntityExamples
                 List<TBLStudent> Studentz_a = db.TBLStudent.OrderByDescending(x => x.FirstName).ToList();
                 dataGridView1.DataSource = Studentz_a;
             }
-            if (radioButton3.Checked==true)
+            if (radioButton3.Checked == true)
             {
-                List<TBLStudent> Last5Record = db.TBLStudent.OrderByDescending(p=>p.FirstName).Take(5).ToList();
+                List<TBLStudent> Last5Record = db.TBLStudent.OrderByDescending(p => p.FirstName).Take(5).ToList();
                 dataGridView1.DataSource = Last5Record;
             }
             if (radioButton4.Checked == true)
@@ -168,10 +170,10 @@ namespace EntityExamples
                 List<TBLStudent> orderDescendingA = db.TBLStudent.Where(x => x.FirstName.EndsWith("a")).ToList();
                 dataGridView1.DataSource = orderDescendingA;
             }
-            if (radioButton7.Checked==true)
+            if (radioButton7.Checked == true)
             {
                 bool value = db.TBLStudent.Any();
-                MessageBox.Show(value.ToString(),"Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show(value.ToString(), "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             if (radioButton8.Checked == true)
             {
@@ -181,7 +183,7 @@ namespace EntityExamples
             if (radioButton9.Checked == true)
             {
                 var sum = db.TBLExamNotes.Sum(p => p.exam1);
-                MessageBox.Show("Birinci Sınavlar Toplamı: "+sum.ToString());
+                MessageBox.Show("Birinci Sınavlar Toplamı: " + sum.ToString());
             }
             if (radioButton10.Checked == true)
             {
@@ -191,7 +193,7 @@ namespace EntityExamples
             if (radioButton11.Checked == true)
             {
                 var average = db.TBLExamNotes.Average(x => x.exam1);
-                List<TBLExamNotes> exam1 = db.TBLExamNotes.Where(p=>p.exam1>=average).ToList();
+                List<TBLExamNotes> exam1 = db.TBLExamNotes.Where(p => p.exam1 >= average).ToList();
                 dataGridView1.DataSource = exam1;
             }
             if (radioButton12.Checked == true)
@@ -202,8 +204,38 @@ namespace EntityExamples
             if (radioButton13.Checked == true)
             {
                 //En Yüksek Sınav Notu kime ait??
+                var high = db.TBLExamNotes.Max(p => p.exam1);
+                var enyuksek = from item in db.TBLExamNotes
+                               where item.exam1 == high
+                               select new
+                               {
+                                   Ad = item.TBLStudent.FirstName,
+                                   Soyad = item.TBLStudent.LastName,
+                                   Sınav1 = item.exam1,
+                                   DersAdı = item.TBLLessons.LessonName
+                               };
+                dataGridView1.DataSource = enyuksek.ToList();
             }
 
+        }
+
+        private void BtnJoin_Click(object sender, EventArgs e)
+        {
+            var query = from item in db.TBLExamNotes
+                        join item2 in db.TBLStudent
+                        on item.Student equals item2.Id
+                        join item3 in db.TBLLessons
+                        on item.Lesson equals item3.LessonId
+                        select new
+                        {
+                            Öğrenci = item2.FirstName + " " + item2.LastName,
+                            Ders = item3.LessonName,
+                            Sınav1 = item.exam1,
+                            Sınav2 = item.exam2,
+                            Sınav3 = item.exam3,
+                            Ortalama = item.exam_averages,
+                        };
+            dataGridView1.DataSource = query.ToList();
         }
     }
 }

@@ -51,7 +51,7 @@ namespace EntityExamples
             this.TxtDersId = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.BtnNotGuncelle = new System.Windows.Forms.Button();
+            this.BtnJoin = new System.Windows.Forms.Button();
             this.BtnHesapla = new System.Windows.Forms.Button();
             this.TxtDurum = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -313,7 +313,7 @@ namespace EntityExamples
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.BtnNotGuncelle);
+            this.groupBox3.Controls.Add(this.BtnJoin);
             this.groupBox3.Controls.Add(this.BtnHesapla);
             this.groupBox3.Controls.Add(this.TxtDurum);
             this.groupBox3.Controls.Add(this.label11);
@@ -332,15 +332,16 @@ namespace EntityExamples
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Sınavlar";
             // 
-            // BtnNotGuncelle
+            // BtnJoin
             // 
-            this.BtnNotGuncelle.Location = new System.Drawing.Point(51, 265);
-            this.BtnNotGuncelle.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnNotGuncelle.Name = "BtnNotGuncelle";
-            this.BtnNotGuncelle.Size = new System.Drawing.Size(201, 45);
-            this.BtnNotGuncelle.TabIndex = 26;
-            this.BtnNotGuncelle.Text = "Sınav Notu Güncelle";
-            this.BtnNotGuncelle.UseVisualStyleBackColor = true;
+            this.BtnJoin.Location = new System.Drawing.Point(51, 265);
+            this.BtnJoin.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnJoin.Name = "BtnJoin";
+            this.BtnJoin.Size = new System.Drawing.Size(201, 45);
+            this.BtnJoin.TabIndex = 26;
+            this.BtnJoin.Text = "Join ile Getir";
+            this.BtnJoin.UseVisualStyleBackColor = true;
+            this.BtnJoin.Click += new System.EventHandler(this.BtnJoin_Click);
             // 
             // BtnHesapla
             // 
@@ -652,10 +653,10 @@ namespace EntityExamples
             this.radioButton13.AutoSize = true;
             this.radioButton13.Location = new System.Drawing.Point(913, 360);
             this.radioButton13.Name = "radioButton13";
-            this.radioButton13.Size = new System.Drawing.Size(194, 24);
+            this.radioButton13.Size = new System.Drawing.Size(208, 24);
             this.radioButton13.TabIndex = 40;
             this.radioButton13.TabStop = true;
-            this.radioButton13.Text = "En Yüksek Sınav Notu";
+            this.radioButton13.Text = "En Yüksek Sınav 1 Notu";
             this.radioButton13.UseVisualStyleBackColor = true;
             // 
             // Form1
@@ -742,7 +743,7 @@ namespace EntityExamples
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button BtnDersListesi;
         private System.Windows.Forms.Button BtnNotListesi;
-        private System.Windows.Forms.Button BtnNotGuncelle;
+        private System.Windows.Forms.Button BtnJoin;
         private System.Windows.Forms.Button BtnHesapla;
         private System.Windows.Forms.Button BtnDersKaydet;
         private System.Windows.Forms.Button BtnProsedur;
