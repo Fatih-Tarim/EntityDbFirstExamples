@@ -65,6 +65,37 @@ namespace EntityExamples
                 });
                 dataGridView1.DataSource = values.ToList();
             }
+            if (radioButton7.Checked == true)
+            {
+                var values = db.TBLExamNotes.SelectMany(x => db.TBLStudent.Where(y => y.Id == x.Student), (x, y) => new
+                {
+                    y.FirstName,
+                    y.LastName,
+                    x.exam_averages,
+                    Durum = x.situation == true ? "Geçti":"Kaldı"
+                });
+                dataGridView1.DataSource = values.ToList();
+            }
+            if (radioButton8.Checked == true)
+            {
+                var values = db.TBLStudent.OrderBy(x => x.Id).Take(3);
+                dataGridView1.DataSource = values.ToList();
+            }
+            if (radioButton9.Checked == true)
+            {
+                var values = db.TBLStudent.OrderByDescending(x => x.Id).Take(3);
+                dataGridView1.DataSource = values.ToList();
+            }
+            if (radioButton10.Checked == true)
+            {
+                var values = db.TBLStudent.OrderBy(x => x.FirstName);
+                dataGridView1.DataSource = values.ToList();
+            }
+            if (radioButton11.Checked == true)
+            {
+                var values = db.TBLStudent.OrderBy(x => x.Id).Skip(5);
+                dataGridView1.DataSource = values.ToList();
+            }
         }
     }
 }

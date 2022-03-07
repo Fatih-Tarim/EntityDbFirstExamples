@@ -39,6 +39,11 @@ namespace EntityExamples
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.radioButton9 = new System.Windows.Forms.RadioButton();
+            this.radioButton10 = new System.Windows.Forms.RadioButton();
+            this.radioButton11 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +51,7 @@ namespace EntityExamples
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(15, 15);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -57,7 +62,7 @@ namespace EntityExamples
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Location = new System.Drawing.Point(15, 366);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(190, 24);
             this.radioButton1.TabIndex = 1;
@@ -67,10 +72,10 @@ namespace EntityExamples
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(13, 563);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(798, 531);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(135, 58);
+            this.button1.Size = new System.Drawing.Size(172, 94);
             this.button1.TabIndex = 2;
             this.button1.Text = "Linq Entity";
             this.button1.UseVisualStyleBackColor = true;
@@ -89,7 +94,7 @@ namespace EntityExamples
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(798, 363);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(187, 27);
             this.textBox1.TabIndex = 4;
@@ -154,11 +159,76 @@ namespace EntityExamples
             this.radioButton6.Text = "Sınavı Geçti mi?";
             this.radioButton6.UseVisualStyleBackColor = true;
             // 
+            // radioButton7
+            // 
+            this.radioButton7.AutoSize = true;
+            this.radioButton7.Location = new System.Drawing.Point(364, 366);
+            this.radioButton7.Margin = new System.Windows.Forms.Padding(4);
+            this.radioButton7.Name = "radioButton7";
+            this.radioButton7.Size = new System.Drawing.Size(89, 24);
+            this.radioButton7.TabIndex = 10;
+            this.radioButton7.TabStop = true;
+            this.radioButton7.Text = "Birleştir";
+            this.radioButton7.UseVisualStyleBackColor = true;
+            // 
+            // radioButton8
+            // 
+            this.radioButton8.AutoSize = true;
+            this.radioButton8.Location = new System.Drawing.Point(364, 398);
+            this.radioButton8.Margin = new System.Windows.Forms.Padding(4);
+            this.radioButton8.Name = "radioButton8";
+            this.radioButton8.Size = new System.Drawing.Size(111, 24);
+            this.radioButton8.TabIndex = 11;
+            this.radioButton8.TabStop = true;
+            this.radioButton8.Text = "İlk 3 Değer";
+            this.radioButton8.UseVisualStyleBackColor = true;
+            // 
+            // radioButton9
+            // 
+            this.radioButton9.AutoSize = true;
+            this.radioButton9.Location = new System.Drawing.Point(364, 430);
+            this.radioButton9.Margin = new System.Windows.Forms.Padding(4);
+            this.radioButton9.Name = "radioButton9";
+            this.radioButton9.Size = new System.Drawing.Size(124, 24);
+            this.radioButton9.TabIndex = 12;
+            this.radioButton9.TabStop = true;
+            this.radioButton9.Text = "Son 3 Değer";
+            this.radioButton9.UseVisualStyleBackColor = true;
+            // 
+            // radioButton10
+            // 
+            this.radioButton10.AutoSize = true;
+            this.radioButton10.Location = new System.Drawing.Point(364, 462);
+            this.radioButton10.Margin = new System.Windows.Forms.Padding(4);
+            this.radioButton10.Name = "radioButton10";
+            this.radioButton10.Size = new System.Drawing.Size(143, 24);
+            this.radioButton10.TabIndex = 13;
+            this.radioButton10.TabStop = true;
+            this.radioButton10.Text = "Ada göre sırala";
+            this.radioButton10.UseVisualStyleBackColor = true;
+            // 
+            // radioButton11
+            // 
+            this.radioButton11.AutoSize = true;
+            this.radioButton11.Location = new System.Drawing.Point(364, 499);
+            this.radioButton11.Margin = new System.Windows.Forms.Padding(4);
+            this.radioButton11.Name = "radioButton11";
+            this.radioButton11.Size = new System.Drawing.Size(149, 24);
+            this.radioButton11.TabIndex = 14;
+            this.radioButton11.TabStop = true;
+            this.radioButton11.Text = "İlk 5 Değeri Atla";
+            this.radioButton11.UseVisualStyleBackColor = true;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 638);
+            this.ClientSize = new System.Drawing.Size(1000, 643);
+            this.Controls.Add(this.radioButton11);
+            this.Controls.Add(this.radioButton10);
+            this.Controls.Add(this.radioButton9);
+            this.Controls.Add(this.radioButton8);
+            this.Controls.Add(this.radioButton7);
             this.Controls.Add(this.radioButton6);
             this.Controls.Add(this.radioButton5);
             this.Controls.Add(this.radioButton4);
@@ -170,7 +240,7 @@ namespace EntityExamples
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form2";
             this.Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -191,5 +261,10 @@ namespace EntityExamples
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.RadioButton radioButton5;
         private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.RadioButton radioButton7;
+        private System.Windows.Forms.RadioButton radioButton8;
+        private System.Windows.Forms.RadioButton radioButton9;
+        private System.Windows.Forms.RadioButton radioButton10;
+        private System.Windows.Forms.RadioButton radioButton11;
     }
 }
